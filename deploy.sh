@@ -21,10 +21,10 @@ tmux kill-session -t "${SESS}" 2>/dev/null || true
 sleep 2
 
 # Step 2: Start HTTP server in tmux
-echo -e "\n${GOLD}[2/5]${NC} Starting HTTP server on port ${PORT}..."
+echo -e "\n${GOLD}[2/5]${NC} Building & serving on port ${PORT}..."
 tmux new-session -d -s "${SESS}" -x 180 -y 40
-tmux send-keys -t "${SESS}" "cd ${DIR} && python3 -m http.server ${PORT}" Enter
-sleep 3
+tmux send-keys -t "${SESS}" "cd ${DIR} && npm run build && cd dist && python3 -m http.server ${PORT}" Enter
+sleep 5
 
 # Step 3: Verify local
 echo -n "  Verifying"
