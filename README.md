@@ -16,9 +16,17 @@ An interactive 3D solar system built with Three.js. Explore planets, orbits, and
 ## Quick Start
 
 ```bash
-# Serve locally
-python3 -m http.server 8080
-# Open http://localhost:8080
+npm install
+npm run dev
+# Open http://localhost:5173
+```
+
+## Production Build
+
+```bash
+npm run build
+npm run preview
+# Output in dist/ — deploy anywhere
 ```
 
 ## Live HTTPS (instant, no account)
@@ -29,19 +37,21 @@ chmod +x deploy.sh
 ./deploy.sh
 ```
 
-This creates a temporary public HTTPS URL via Cloudflare Tunnel.
+This builds, serves, and creates a temporary public HTTPS URL via Cloudflare Tunnel.
 
 ## Permanent Hosting
 
-- **GitHub Pages** — push to a repo, enable Pages
-- **Netlify** — drag the folder to netlify.com
-- **Surge.sh** — `surge ./ your-site.surge.sh`
+- **GitHub Pages** — push to repo, enable Pages (deploys from dist/ or root)
+- **Netlify** — drag the dist/ folder to netlify.com
+- **Surge.sh** — `surge ./dist your-site.surge.sh`
 
 ## Tech
 
-- [Three.js](https://threejs.org) — 3D rendering (loaded from CDN)
+- [Three.js](https://threejs.org) 0.184 — 3D rendering (ES modules via npm)
+- [Vite](https://vite.dev) 8 — dev server with HMR, optimized builds
+- Procedural textures — Canvas2D + FBM noise (zero image assets)
+- Custom GLSL shaders — twinkling stars, sun corona animation
 - [Cloudflare Tunnel](https://cloudflare.com) — free HTTPS (optional)
-- Zero build tools, zero dependencies
 
 ## Privacy
 

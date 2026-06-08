@@ -14,7 +14,7 @@
 
 ## Requirements
 
-- Python 3 (built-in on most systems)
+- Node.js 18+ and npm
 - [cloudflared](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/) — for HTTPS tunnel
 - tmux — for persistent background processes (optional, included in deploy.sh)
 
